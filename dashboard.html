@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes Musiques</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard">
+
+<div class="top">
+
+    <h1>Mes Musiques</h1>
+
+    <button onclick="logout()">
+        Déconnexion
+    </button>
+
+</div>
+
+<div class="song">
+
+    <h3>Musique 1</h3>
+
+    <audio controls>
+        <source src="musiques/music1.mp3">
+    </audio>
+
+    <a href="musiques/music1.mp3" download>
+        Télécharger
+    </a>
+
+</div>
+
+<div class="song">
+
+    <h3>Musique 2</h3>
+
+    <audio controls>
+        <source src="musiques/music2.mp3">
+    </audio>
+
+    <a href="musiques/music2.mp3" download>
+        Télécharger
+    </a>
+
+</div>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>
