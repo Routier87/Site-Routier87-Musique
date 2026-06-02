@@ -1,65 +1,77 @@
 const users = [
-    {
-        username: "Samantha",
-        password: "2026"
-    },
-    {
-        username: "Océane",
-        password: "2026"
-    },
-    {
-        username: "Chicco",
-        password: "2026"
-    },
-    {
-        username: "Christian",
-        password: "2026"
-    },
-    {
-        username: "Routier87",
-        password: "878787",
-        role: "admin"
-    }
+
+{
+    username:"Samantha",
+    password:"2026",
+    page:"samantha.html"
+},
+
+{
+    username:"Océane",
+    password:"2026",
+    page:"oceane.html"
+},
+
+{
+    username:"Chicco",
+    password:"2026",
+    page:"chicco.html"
+},
+
+{
+    username:"Christian",
+    password:"2026",
+    page:"christian.html"
+},
+
+{
+    username:"Routier87",
+    password:"878787",
+    page:"routier87.html"
+}
+
 ];
 
-function login() {
+function login(){
 
-    const username = document
-        .getElementById("user")
-        .value
-        .trim();
+    let username =
+    document.getElementById("user").value;
 
-    const password = document
-        .getElementById("pass")
-        .value
-        .trim();
+    let password =
+    document.getElementById("pass").value;
 
-    const user = users.find(
+    let user =
+    users.find(
+
         u =>
         u.username === username &&
         u.password === password
+
     );
 
-    if (!user) {
-        alert("Identifiant ou mot de passe incorrect");
-        return;
+    if(user){
+
+        localStorage.setItem(
+            "connected",
+            "true"
+        );
+
+        localStorage.setItem(
+            "username",
+            user.username
+        );
+
+        window.location.href =
+            user.page;
+
     }
 
-    localStorage.setItem(
-        "connected",
-        "true"
-    );
+    else{
 
-    localStorage.setItem(
-        "username",
-        user.username
-    );
+        alert(
+            "Nom d'utilisateur ou mot de passe incorrect."
+        );
 
-    localStorage.setItem(
-        "role",
-        user.role || "user"
-    );
+    }
 
-    window.location.href =
-        "dashboard.html";
 }
