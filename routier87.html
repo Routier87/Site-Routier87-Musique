@@ -27,9 +27,35 @@ Déconnexion
 
 </header>
 
+<!-- PANEL ADMIN -->
+
+<div class="admin-panel">
+
+<h2>👑 Panneau Fondateur</h2>
+
+<p>
+Bienvenue dans l'espace administrateur.
+</p>
+
+<button onclick="addMusic()">
+➕ Ajouter une musique
+</button>
+
+<button onclick="manageUsers()">
+👥 Gérer les utilisateurs
+</button>
+
+<button onclick="viewStats()">
+📊 Statistiques
+</button>
+
+</div>
+
+<!-- MUSIQUE 1 -->
+
 <div class="music-card">
 
-<h3>Ma Musique 1</h3>
+<h3>🎵 Ma Musique 1</h3>
 
 <audio controls>
 <source src="musiques/music1.mp3">
@@ -74,9 +100,11 @@ class="comments">
 
 </div>
 
+<!-- MUSIQUE 2 -->
+
 <div class="music-card">
 
-<h3>Ma Musique 2</h3>
+<h3>🎵 Ma Musique 2</h3>
 
 <audio controls>
 <source src="musiques/music2.mp3">
@@ -124,4 +152,5 @@ class="comments">
 <script src="js/player.js"></script>
 
 </body>
+
 </html>
