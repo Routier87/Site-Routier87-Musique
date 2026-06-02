@@ -1,0 +1,82 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    background:url("../images/background.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.logo{
+    position:absolute;
+    top:20px;
+    left:30px;
+    color:white;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.login-box{
+    width:350px;
+    padding:30px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+}
+
+.login-box input{
+    width:100%;
+    padding:12px;
+    margin-bottom:12px;
+    border:none;
+    border-radius:8px;
+}
+
+.login-box button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.dashboard{
+    display:block;
+    padding:30px;
+    background:#111;
+    color:white;
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.song{
+    background:#222;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+.song audio{
+    width:100%;
+    margin-top:10px;
+}
+
+.song a{
+    display:inline-block;
+    margin-top:10px;
+    color:#00bfff;
+    text-decoration:none;
+}
