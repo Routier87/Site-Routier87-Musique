@@ -1,8 +1,49 @@
 function logout(){
-
     localStorage.clear();
+    window.location.href="index.html";
+}
 
-    window.location.href = "index.html";
+/* =========================
+   UTILISATEUR CONNECTÉ
+========================= */
+
+const currentUser =
+    localStorage.getItem("username") || "guest";
+
+/* =========================
+   LIKES / DISLIKES / FAVORIS
+========================= */
+
+function toggleLike(songId){
+
+    let data = getSongData(songId);
+
+    data.like = !data.like;
+    data.dislike = false;
+
+    saveSongData(songId, data);
+    updateUI(songId);
+}
+
+function toggleDislike(songId){
+
+    let data = getSongData(songId);
+
+    data.dislike = !data.dislike;
+    data.like = false;
+
+    saveSongData(songId, data);
+    updateUI(songId);
+}
+
+function toggleFavorite(songId){
+
+    let data = getSongData(songId);
+
+    data.favorite = !data.favorite;
+
+    saveSongData(songId, data);
+    updateUI(songId);
 }
 
 /* =========================
@@ -12,26 +53,20 @@ function logout(){
 function saveComment(songId){
 
     let textarea =
-    document.getElementById(
-        "comment-" + songId
-    );
+        document.getElementById("comment-" + songId);
 
-    let text =
-    textarea.value.trim();
+    let text = textarea.value.trim();
 
     if(text === "") return;
 
-    let comments =
-    JSON.parse(
-        localStorage.getItem(songId)
-    ) || [];
+    let data = getSongData(songId);
 
-    comments.push(text);
+    data.comments.push({
+        user: currentUser,
+        text: text
+    });
 
-    localStorage.setItem(
-        songId,
-        JSON.stringify(comments)
-    );
+    saveSongData(songId, data);
 
     textarea.value = "";
 
@@ -41,66 +76,87 @@ function saveComment(songId){
 function loadComments(songId){
 
     let container =
-    document.getElementById(
-        "comments-" + songId
-    );
+        document.getElementById("comments-" + songId);
 
-    if(!container) return;
-
-    let comments =
-    JSON.parse(
-        localStorage.getItem(songId)
-    ) || [];
+    let data = getSongData(songId);
 
     container.innerHTML = "";
 
-    comments.forEach(comment => {
+    data.comments.forEach(c => {
 
         container.innerHTML += `
         <div class="comment">
-            💬 ${comment}
+            <b>${c.user}</b> 💬 ${c.text}
         </div>
         `;
-
     });
-
 }
 
 /* =========================
-   BOUTONS ADMIN ROUTIER87
+   STOCKAGE LOCAL
 ========================= */
 
-function addMusic(){
+function getSongData(songId){
 
-    alert(
-        "➕ Fonction Ajouter une musique (à développer)"
+    let data = JSON.parse(
+        localStorage.getItem(songId)
     );
 
+    if(!data){
+
+        data = {
+            like:false,
+            dislike:false,
+            favorite:false,
+            comments:[]
+        };
+
+    }
+
+    return data;
 }
 
-function manageUsers(){
+function saveSongData(songId, data){
 
-    alert(
-        "👥 Fonction Gestion des utilisateurs (à développer)"
+    localStorage.setItem(
+        songId,
+        JSON.stringify(data)
     );
-
-}
-
-function viewStats(){
-
-    alert(
-        "📊 Fonction Statistiques (à développer)"
-    );
-
 }
 
 /* =========================
-   CHARGEMENT PAGE
+   UPDATE UI (icônes)
+========================= */
+
+function updateUI(songId){
+
+    let data = getSongData(songId);
+
+    let likeBtn = document.getElementById("like-" + songId);
+    let dislikeBtn = document.getElementById("dislike-" + songId);
+    let favBtn = document.getElementById("fav-" + songId);
+
+    if(likeBtn)
+        likeBtn.style.color = data.like ? "green" : "white";
+
+    if(dislikeBtn)
+        dislikeBtn.style.color = data.dislike ? "red" : "white";
+
+    if(favBtn)
+        favBtn.style.color = data.favorite ? "gold" : "white";
+}
+
+/* =========================
+   INIT PAGE
 ========================= */
 
 window.onload = () => {
 
-    loadComments("song1");
-    loadComments("song2");
+    ["song1", "song2"].forEach(songId => {
+
+        loadComments(songId);
+        updateUI(songId);
+
+    });
 
 };
