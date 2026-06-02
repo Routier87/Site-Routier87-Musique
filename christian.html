@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>𝕔𝕙𝕣𝕚𝕤𝕥𝕚𝕒𝕟</title>
+
+<link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🎵 Christian</h1>
+
+<button
+class="logout"
+onclick="logout()">
+
+Déconnexion
+
+</button>
+
+</header>
+
+<div class="music-card">
+
+<h3>Ma Musique 1</h3>
+
+<audio controls>
+<source src="musiques/music1.mp3">
+</audio>
+
+<div class="actions">
+
+<button>👍</button>
+
+<button>👎</button>
+
+<button>❤️</button>
+
+<a
+class="download"
+href="musiques/music1.mp3"
+download>
+
+📥 Télécharger
+
+</a>
+
+</div>
+
+<textarea
+id="comment-song1"
+placeholder="💬 Ajouter un commentaire...">
+</textarea>
+
+<button
+class="comment-btn"
+onclick="saveComment('song1')">
+
+Envoyer
+
+</button>
+
+<div
+id="comments-song1"
+class="comments">
+</div>
+
+</div>
+
+<div class="music-card">
+
+<h3>Ma Musique 2</h3>
+
+<audio controls>
+<source src="musiques/music2.mp3">
+</audio>
+
+<div class="actions">
+
+<button>👍</button>
+
+<button>👎</button>
+
+<button>❤️</button>
+
+<a
+class="download"
+href="musiques/music2.mp3"
+download>
+
+📥 Télécharger
+
+</a>
+
+</div>
+
+<textarea
+id="comment-song2"
+placeholder="💬 Ajouter un commentaire...">
+</textarea>
+
+<button
+class="comment-btn"
+onclick="saveComment('song2')">
+
+Envoyer
+
+</button>
+
+<div
+id="comments-song2"
+class="comments">
+</div>
+
+</div>
+
+<script src="js/player.js"></script>
+
+</body>
+</html>
