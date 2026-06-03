@@ -1,59 +1,58 @@
 const users = [
 
 {
-    username:"Samantha",
-    password:"2026",
-    page:"samantha.html"
+    username: "Samantha",
+    password: "2026",
+    page: "samantha.html"
 },
 
 {
-    username:"Océane",
-    password:"2026",
-    page:"oceane.html"
+    username: "Océane",
+    password: "2026",
+    page: "oceane.html"
 },
 
 {
-    username:"Chicco",
-    password:"2026",
-    page:"chicco.html"
+    username: "Chicco",
+    password: "2026",
+    page: "chicco.html"
 },
 
 {
-    username:"Christian",
-    password:"2026",
-    page:"christian.html"
+    username: "Christian",
+    password: "2026",
+    page: "christian.html"
 },
 
 {
-    username:"Farm",
-    password:"2026",
-    page:"farm.html"
+    username: "Farm",
+    password: "2026",
+    page: "farm.html"
 },
 
 {
-    username:"Benjamin",
-    password:"2026",
-    page:"benjamin.html"
-}
+    username: "Benjamin",
+    password: "2026",
+    page: "benjamin.html"
+},
 
 {
-    username:"Routier87",
-    password:"878787",
-    page:"routier87.html"
+    username: "Routier87",
+    password: "878787",
+    page: "routier87.html"
 }
 
 ];
 
-function login(){
+function login() {
 
     let username =
-    document.getElementById("user").value;
+        document.getElementById("user").value.trim();
 
     let password =
-    document.getElementById("pass").value;
+        document.getElementById("pass").value.trim();
 
-    let user =
-    users.find(
+    let user = users.find(
 
         u =>
         u.username === username &&
@@ -61,7 +60,7 @@ function login(){
 
     );
 
-    if(user){
+    if (user) {
 
         localStorage.setItem(
             "connected",
@@ -73,12 +72,17 @@ function login(){
             user.username
         );
 
+        localStorage.setItem(
+            "role",
+            user.username === "Routier87"
+                ? "admin"
+                : "user"
+        );
+
         window.location.href =
             user.page;
 
-    }
-
-    else{
+    } else {
 
         alert(
             "Nom d'utilisateur ou mot de passe incorrect."
