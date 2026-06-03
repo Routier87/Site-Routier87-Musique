@@ -25,6 +25,18 @@ const users = [
 },
 
 {
+    username:"Farm",
+    password:"2026",
+    page:"farm.html"
+},
+
+{
+    username:"Benjamin",
+    password:"2026",
+    page:"benjamin.html"
+}
+
+{
     username:"Routier87",
     password:"878787",
     page:"routier87.html"
