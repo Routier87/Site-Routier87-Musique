@@ -2,7 +2,7 @@ const users = [
 
 {
     username: "Samantha",
-    password: "2026",
+    password: "Drouet",
     page: "samantha.html"
 },
 
