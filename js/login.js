@@ -7,7 +7,7 @@ const users = [
 },
 
 {
-    username: "Oceane",
+    username: "Océane",
     password: "Oceane870",
     page: "oceane.html"
 },
