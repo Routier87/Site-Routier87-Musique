@@ -7,8 +7,8 @@ const users = [
 },
 
 {
-    username: "Océane",
-    password: "2026",
+    username: "Oceane",
+    password: "Oceane870",
     page: "oceane.html"
 },
 
