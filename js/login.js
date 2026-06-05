@@ -26,7 +26,7 @@ const users = [
 
 {
     username: "Farm",
-    password: "2026",
+    password: "freddy123",
     page: "farm.html"
 },
 
